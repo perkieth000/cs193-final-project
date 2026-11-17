@@ -10,7 +10,7 @@ import java.time.*;
  * @version 0.1 - Nov 16, 2026
  */
 
-public class Week {
+public class ListenWeek {
     private LocalDate weekStart;
     private int minutesListened;
 
@@ -25,7 +25,7 @@ public class Week {
      * @param minutesListened minutes listened to music this week
      * @throws InvalidDayException errors if starting day is not a Monday
      */
-    public Week(int year, int month, int day, int minutesListened) throws InvalidDayException {
+    public ListenWeek(int year, int month, int day, int minutesListened) throws InvalidDayException {
         isMonday(LocalDate.of(year, month, day));
         this.weekStart = LocalDate.of(year, month, day);
         this.minutesListened = minutesListened;
@@ -40,7 +40,7 @@ public class Week {
      * @param day day of the start of the week
      * @throws InvalidDayException errors if starting day is not a Monday
      */
-    public Week(int year, int month, int day) throws InvalidDayException {
+    public ListenWeek(int year, int month, int day) throws InvalidDayException {
         isMonday(LocalDate.of(year, month, day));
         this.weekStart = LocalDate.of(year, month, day);
         minutesListened = -1;
@@ -71,7 +71,7 @@ public class Week {
      * @param week the Week being compared to this week
      * @return true if this week happens chronologically before the other week, otherwise false
      */
-    public boolean isBefore(Week week) {
+    public boolean isBefore(ListenWeek week) {
         if (this.weekStart.isBefore(week.getDate())) {
             return true;
         }
@@ -98,7 +98,7 @@ public class Week {
      * @param week the Week being compared to this week
      * @return true if this minutesListened is greater than that of the parameter Week
      */
-    public boolean listenedMoreThan(Week week) {
+    public boolean listenedMoreThan(ListenWeek week) {
         return this.minutesListened > week.getMinutesListened();
     }
 
